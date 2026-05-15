@@ -164,8 +164,3 @@ O polimorfismo foi o mais desafiador, especialmente entender por que a variável
 
 **O que você melhoraria no seu projeto se pudesse refazer?**
 Criaria um `ControleDualSense` (PS5) também como classe filha para demonstrar melhor a extensibilidade da hierarquia, e adicionaria uma interface `Conectavel` para representar controles com Bluetooth e USB, mostrando múltiplas interfaces em ação. Também separaria os arquivos Java em commits mais granulares desde o início, em vez de organizar tudo ao final.
-
----
-
-*"A melhor forma de aprender programação é PROGRAMANDO."*
-*— Prof. Ygor Anjos, FIAP*
