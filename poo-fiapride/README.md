@@ -1,12 +1,11 @@
-# Projeto FiapRide + ControlePS4 - ALEturbo500
+# Projeto FiapRide + ControlePS4 - Alexandre Bertini
 
 ## ℹ️ Informações do Aluno
 
-- **Nome:** [Seu Nome Completo]
-- **RM:** [Seu RM]
-- **Turma:** [Sua Turma]
-- **Curso:** [Seu Curso]
-- **GitHub:** [@ALEturbo500](https://github.com/ALEturbo500)
+- Alexandre Bertini
+- RM: 563346
+- 2CCPF
+- Ciência da Computação
 
 ---
 
@@ -30,35 +29,6 @@ Este projeto é o resultado do aprendizado nas aulas 1-9 de Programação Orient
 
 ---
 
-## 📁 Estrutura do Projeto
-
-```
-poo-fiapride/
-├── src/
-│   └── br/
-│       └── com/
-│           └── fiapride/
-│               ├── model/
-│               │   ├── Passageiro.java          (Aula 1)
-│               │   ├── PassageiroV2.java         (Aula 2)
-│               │   ├── PassageiroV3.java         (Aula 3)
-│               │   ├── VeiculoV4.java            (Aula 4)
-│               │   ├── Bateria.java              (Aula 5)
-│               │   ├── ControlePS4Aula5.java     (Aula 5)
-│               │   ├── DispositivoEletronico.java (Aulas 6-8)
-│               │   ├── ControlePS4Final.java     (Aulas 6-9)
-│               │   ├── Smartphone.java           (Aulas 6-9)
-│               │   ├── CarroEletrico.java        (Aula 9)
-│               │   ├── Recarregavel.java         (Aula 9 - Interface)
-│               │   └── ControlePs4.java          (Aula 1 - Projeto Pessoal)
-│               └── main/
-│                   ├── SistemaPrincipal.java     (Aula 1)
-│                   └── Main.java                 (Aulas 5-9)
-└── README.md
-```
-
----
-
 ## 🧠 Perguntas de Reflexão
 
 ### Aula 1 - Classes e Objetos
@@ -67,7 +37,7 @@ poo-fiapride/
 
 Pense: E se o FiapRide tiver 1 milhão de usuários? Como a Classe ajuda a resolver isso?
 
-**Sua Resposta:**
+**Resposta:**
 A classe `Passageiro` ajuda a organizar os dados de cada usuário em um único lugar, como nome e saldo, sem precisar criar várias variáveis soltas no main. Isso facilita muito o desenvolvimento, porque se o FiapRide tiver 1 milhão de usuários, seria impossível criar variáveis manualmente para cada um. Com a classe, podemos criar vários passageiros de forma automática, organizada e muito mais prática. O mesmo vale para o projeto pessoal: sem a classe `ControlePs4`, teríamos que criar variáveis separadas para a cor, o LED e a capacidade de bateria de cada controle individualmente. Com a classe, criamos quantos objetos precisarmos usando o mesmo molde.
 
 ---
@@ -76,7 +46,7 @@ A classe `Passageiro` ajuda a organizar os dados de cada usuário em um único l
 
 **Pergunta:** Se nós podemos simplesmente fazer `passageiro.saldo = passageiro.saldo + 100` diretamente no código principal, por que dá tanto trabalho criar um método específico chamado `adicionarSaldo(valor)` para fazer isso? Quais seriam os riscos para a nossa startup de mobilidade se deixássemos qualquer programador alterar o saldo diretamente?
 
-**Sua Resposta:**
+**Resposta:**
 Criar o método `adicionarSaldo(valor)` deixa o sistema mais seguro e organizado, porque ele controla como o saldo pode ser alterado. Assim, podemos validar regras, como impedir valores negativos ou registrar movimentações. Se qualquer programador pudesse mudar o saldo diretamente, poderiam acontecer erros, fraudes ou inconsistências, como usuários ficando com saldo negativo ou recebendo créditos indevidos, o que seria um grande risco para a startup. No projeto do ControlePS4, isso também se aplica: o nível da bateria não deveria ser alterado diretamente, pois poderíamos definir um valor de 500% ou -30%, o que não faz sentido no mundo real.
 
 ---
@@ -87,7 +57,7 @@ Criar o método `adicionarSaldo(valor)` deixa o sistema mais seguro e organizado
 
 Pense bem: Qual a diferença entre dar a alguém uma CÓPIA de um documento seu, e entregar o documento ORIGINAL para a pessoa rasura?
 
-**Sua Resposta:**
+**Resposta:**
 Deixar os setters privados aumenta a segurança e o controle do sistema, porque impede alterações diretas nos dados importantes, como o saldo. Assim, o programa é obrigado a usar métodos específicos, como `adicionarSaldo()` e `pagarViagem()`, que aplicam regras de negócio e validações. O getter público retorna uma cópia do valor — você está entregando uma fotocópia do documento, segura para leitura. Se o atributo fosse público, seria como entregar o original: qualquer um poderia rasurá-lo. Isso evita mudanças indevidas, mantém os dados consistentes e deixa o código mais organizado e confiável. No ControlePS4, o nível da bateria deve ser lido livremente, mas só alterado por métodos controlados como `recarregar()`.
 
 ---
@@ -100,7 +70,7 @@ Deixar os setters privados aumenta a segurança e o controle do sistema, porque 
 
 Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em "Gerar Getters e Setters para tudo" automaticamente na sua IDE? Como as nossas duas decisões acima protegem o sistema de fraudes e falhas de lógica?
 
-**Sua Resposta:**
+**Resposta:**
 Gerar getters e setters para tudo automaticamente é um erro porque deixa qualquer parte do sistema alterar dados importantes sem controle. Isso quebra o encapsulamento e pode causar fraudes, erros e inconsistências. No caso da classe `Veiculo`, não criar `setModelo()` protege informações que não deveriam mudar facilmente, como o modelo do carro — fisicamente, um carro não troca de modelo. Já deixar `setPlaca()` privado e usar `atualizarPlaca()` permite aplicar regras e validações antes da mudança, evitando alterações inválidas ou até fraudes no cadastro dos veículos, simulando o processo real do Detran. No ControlePS4, o modelo do controle também não deveria mudar após a criação do objeto.
 
 ---
@@ -111,7 +81,7 @@ Gerar getters e setters para tudo automaticamente é um erro porque deixa qualqu
 
 Pense nas regras de negócio: O que acontece na hora que a Viagem acaba e o sistema precisa descontar o saldo? Se a Viagem tiver apenas a `String` "Ana Silva", ela consegue mexer no dinheiro dela?
 
-**Sua Resposta:**
+**Resposta:**
 Usar o objeto inteiro `Passageiro` é importante porque a viagem não precisa apenas mostrar o nome — ela também precisa acessar os dados e comportamentos do passageiro, como descontar saldo ao final da corrida. Se a `Viagem` tivesse apenas a `String` "Ana Silva", ela só teria um texto, sem acesso ao saldo ou aos métodos do passageiro. Com o objeto completo, a viagem consegue interagir diretamente com o passageiro de forma segura e organizada, aplicando as regras de negócio corretamente. No ControlePS4, o controle TEM-UMA bateria como objeto completo: precisamos do objeto `Bateria` para chamar `recarregar()`, consultar o nível real e aplicar lógica de negócio, não apenas exibir um número.
 
 ---
@@ -122,7 +92,7 @@ Usar o objeto inteiro `Passageiro` é importante porque a viagem não precisa ap
 
 Por que o Java não deixa a filha alterar as variáveis privadas da mãe diretamente? Qual o princípio das aulas passadas que isso está protegendo?
 
-**Sua Resposta:**
+**Resposta:**
 O Java faz isso para proteger o **encapsulamento**, que é o princípio de esconder os dados internos da classe e permitir alterações apenas de forma controlada. Mesmo que `ControlePS4Final` herde de `DispositivoEletronico`, os atributos `private` continuam protegidos para evitar mudanças diretas e inseguras. Assim, a filha é obrigada a usar métodos controlados, como `setPlaca()` ou o `super()`, garantindo que as regras de negócio e validações sejam respeitadas. Isso também mantém a hierarquia de responsabilidades clara: a mãe é dona dos seus dados, e as filhas interagem por canais definidos.
 
 ---
@@ -131,7 +101,7 @@ O Java faz isso para proteger o **encapsulamento**, que é o princípio de escon
 
 **Pergunta:** No nosso loop `for (Veiculo veiculo : frota)`, a variável `veiculo` é do tipo genérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia()` lá na classe mãe `Veiculo`, nós conseguiríamos chamá-lo dentro do loop, mesmo sabendo que ele existe dentro do `Carro` e da `Moto`? Por que o contrato precisa existir na base da hierarquia?
 
-**Sua Resposta:**
+**Resposta:**
 Não conseguiríamos, porque dentro do loop a variável é do tipo `DispositivoEletronico`, e o Java só permite chamar métodos que existem na classe base. Mesmo que `ControlePS4Final` e `Smartphone` tenham `ligar()`, o compilador não sabe disso ao olhar para um `DispositivoEletronico` genérico. Por isso o contrato precisa existir na classe mãe: ele garante que todos os tipos de dispositivo terão esse método, permitindo o uso do polimorfismo de forma segura e organizada. É exatamente assim que o loop `for (DispositivoEletronico d : dispositivos)` consegue chamar `d.ligar()` sem saber se é um controle ou um smartphone.
 
 ---
@@ -144,7 +114,7 @@ Por que, então, no código, precisamos EXPLICITAMENTE dizer ao Java que `Veicul
 
 Pense: Se esquecermos de colocar `abstract`, qual o risco que corremos? Alguém pode criar `new Veiculo()` e quebrar a lógica do nosso sistema?
 
-**Sua Resposta:**
+**Resposta:**
 No mundo real, "Veículo" é apenas uma categoria geral, porque sempre existe um tipo específico como carro, moto ou caminhão. O mesmo vale para `DispositivoEletronico`: ninguém compra "um dispositivo eletrônico genérico". Por isso usamos `abstract`: para impedir que alguém crie um objeto genérico que não faz sentido sozinho. O Java não deduz isso automaticamente porque ele não sabe a intenção do programador; uma classe pode ser genérica ou não dependendo da regra do sistema. Se esquecermos de colocar `abstract`, alguém poderia fazer `new DispositivoEletronico()` e criar objetos incompletos sem comportamento definido, o que quebraria a lógica do sistema.
 
 ---
@@ -157,7 +127,7 @@ Pense: Se `CarroEletrico` pudesse herdar de `Veiculo` E de `Bateria` ao mesmo te
 
 Como as interfaces resolvem esse problema?
 
-**Sua Resposta:**
+**Resposta:**
 O Java evita herança múltipla de classes para impedir conflitos e ambiguidades. Se `ControlePS4Final` herdasse de `DispositivoEletronico` e de `Bateria`, e as duas classes tivessem um método `ligar()`, o Java não saberia qual versão usar, criando o chamado "problema do diamante". Já as interfaces funcionam como contratos: elas dizem **o que** a classe deve fazer, mas normalmente não trazem implementação completa. Assim, a própria classe decide como implementar o método, evitando conflitos e deixando o código mais organizado e seguro. No nosso projeto, `ControlePS4Final` implementa `Recarregavel` e ao mesmo tempo herda de `DispositivoEletronico`, combinando herança e múltiplos contratos sem ambiguidade.
 
 ---
